@@ -1,6 +1,6 @@
-Q.  LEETCODE 977.  Squares of a Sorted Array
+ LEETCODE 977.  Squares of a Sorted Array
 
-SOLUTION- class Solution:
+class Solution:
     def sortedSquares(self, arr: List[int]) -> List[int]:
         neg=[]
         post=[]
