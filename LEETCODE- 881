@@ -1,0 +1,14 @@
+LEETCODE- 881. Boats to Save People
+
+class Solution:
+    def numRescueBoats(self, arr: List[int], limit: int) -> int:        
+        arr.sort()
+        i=0
+        j=len(arr)-1
+        boat=0
+        while i<=j :
+            if( arr[i]+arr[j]) <=limit:
+                i+=1
+            j-=1
+            boat+=1
+        return boat 
