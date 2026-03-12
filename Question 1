@@ -1,0 +1,64 @@
+Q.  LEETCODE 977.  Squares of a Sorted Array
+
+SOLUTION- class Solution:
+    def sortedSquares(self, arr: List[int]) -> List[int]:
+        neg=[]
+        post=[]
+        res=[]
+        n=len(arr)
+        for i in range(n):
+            if arr[i]<0:
+                neg.append(arr[i])
+            else:
+                post.append(arr[i])
+        
+        if len(neg)==0:
+            for j in post:
+                res.append(j**2)
+            return res
+        
+        if len(post)==0:
+            neg.reverse()
+            for x in neg:
+                res.append(x**2)
+            return res
+        
+        else:
+            neg=[x*x for x in neg][::-1]
+            post=[x*x for x in post]
+            i=j=0
+            q=len(neg)
+            w=len(post)
+            while i<q and j<w:
+                if neg[i]<=post[j]:
+                    res.append(neg[i])
+                    i+=1
+                elif neg[i]>=post[j]:
+                    res.append(post[j])
+                    j+=1
+            
+            while i<q:
+                res.append(neg[i])
+                i+=1
+            while j<w:
+                res.append(post[j])
+                j+=1
+
+        return res       
+
+
+
+            
+               
+
+            
+
+                
+        
+
+
+
+
+
+
+        
